@@ -1,6 +1,8 @@
 // Generic function to create HTML elements
+// Generic function to create HTML elements
 function createElement(tagName, attributes = {}, content = '') {
     const attrs = Object.entries(attributes)
+                        .filter(([key, value]) => value !== "" && value != null)
                         .map(([key, value]) => `${key}="${value}"`)
                         .join(' ');
     return `<${tagName} ${attrs}>${content}</${tagName}>`;
